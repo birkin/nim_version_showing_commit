@@ -1,3 +1,4 @@
 
 nim_version_showing_commit
 PRE_save_commit_hash
+version.nim
