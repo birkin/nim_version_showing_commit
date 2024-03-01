@@ -18,5 +18,7 @@ requires "nim >= 2.0.2"
 ## Tasks ------------------------------------------------------------
 
 task runPreAndMain, "Runs pre.nim and then main.nim":
-  exec "nim c -r ./src/PRE_save_commit_hash.nim"
-  exec "nim c -r ./src/nim_version_showing_commit.nim"
+    # exec "nim c -r ./src/PRE_save_commit_hash.nim"
+    # exec "nim c -r ./src/nim_version_showing_commit.nim"
+    exec "nim r -r ./src/PRE_save_commit_hash.nim"
+    exec "nim r -r ./src/nim_version_showing_commit.nim"
