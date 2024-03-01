@@ -34,4 +34,13 @@ while true:
   of cmdArgument:
     echo "Submitted argument: ", opt_parser.key
 
+
+## experimenting 2 --------------------------------------------------
+## <https://nim-lang.org/docs/parseopt.html#getopt.i%2COptParser>
+echo "\ntrying getopt() iterator ..."
+
+var opt_parser2 = initOptParser()
+for kind, key, val in opt_parser2.getopt():
+    echo "kind: ", kind, ", key: ", key, ", val: ", val
+
 echo "\n--eof--"
