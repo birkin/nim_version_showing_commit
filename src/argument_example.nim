@@ -4,6 +4,7 @@
 import std/parseopt
 
 ## demo -------------------------------------------------------------
+echo "Demo options..."
 var p = initOptParser("-ab -e:5 --foo --bar=20 file.txt")
 while true:
   p.next()
@@ -18,18 +19,19 @@ while true:
     echo "Argument: ", p.key
 
 
-## trying -----------------------------------------------------------
-var p = initOptParser("-ab -e:5 --foo --bar=20 file.txt")
+## experimenting ----------------------------------------------------
+echo "\nSubmitted options..."
+var opt_parser = initOptParser()
 while true:
-  p.next()
-  case p.kind
+  opt_parser.next()
+  case opt_parser.kind
   of cmdEnd: break
   of cmdShortOption, cmdLongOption:
-    if p.val == "":
-      echo "Option: ", p.key
+    if opt_parser.val == "":
+      echo "Submitted option: ",  opt_parser.key
     else:
-      echo "Option and value: ", p.key, ", ", p.val
+      echo "Submitted option and value: ", opt_parser.key, ", ", opt_parser.val
   of cmdArgument:
-    echo "Argument: ", p.key
+    echo "Submitted argument: ", opt_parser.key
 
-echo "eof"
+echo "\n--eof--"
