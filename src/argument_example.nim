@@ -19,7 +19,7 @@ while true:
     echo "Argument: ", p.key
 
 
-## experimenting ----------------------------------------------------
+## experiment -------------------------------------------------------
 echo "\nSubmitted options..."
 var opt_parser = initOptParser()
 while true:
@@ -35,7 +35,7 @@ while true:
     echo "Submitted argument: ", opt_parser.key
 
 
-## experimenting 2 --------------------------------------------------
+## experiment 2 -----------------------------------------------------
 ## <https://nim-lang.org/docs/parseopt.html#getopt.i%2COptParser>
 echo "\ntrying getopt() iterator ..."
 
