@@ -41,11 +41,12 @@ while true:
 echo "\nTrying getopt() iterator ..."
 
 var
-  opt_parser2 = initOptParser()
-  versionFound = false  # Flag to indicate whether --version is found
+  opt_parser2: OptParser = initOptParser()
+  versionFound: bool = false  # Flag to indicate whether --version is found
 
 # Iterate over each command-line argument
 for kind, key, val in opt_parser2.getopt():
+    assert kind is CmdLineKind and key is string and val is string
     echo "kind: ", kind, ", key: ", key, ", val: ", val
     # Check if the current argument is --version
     if kind == cmdLongOption and key == "version":
