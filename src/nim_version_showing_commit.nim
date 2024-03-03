@@ -12,13 +12,13 @@ include version
 ## grab level from envar ------------------------
 let appLogLevel: string = os.getEnv("APP_LOG_LEVEL")
 ## get the level-obj ----------------------------
-var log_level_dict = {
+var log_level_dict: Table[system.string, logging.Level] = {
     "debug": lvlDebug,
     "info": lvlInfo
 }.toTable()
-var level_obj = log_level_dict[appLogLevel]
+let level_obj: Level = log_level_dict[appLogLevel]
 ## instantiate logger ---------------------------
-var logger = newConsoleLogger( levelThreshold=level_obj )
+let logger: ConsoleLogger = newConsoleLogger( levelThreshold=level_obj )
 logger.log( lvlDebug, "level_obj, ", level_obj )
 # logger.log( lvlInfo, "an info-level log message" )
 
