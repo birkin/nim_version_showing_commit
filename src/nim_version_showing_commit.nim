@@ -14,7 +14,7 @@ for kind, key, val in opt_parser.getopt():
     assert kind is CmdLineKind and key is string and val is string
     # echo "\nkind: ", kind, "; key: ", key, "; val: ", val
     if kind == cmdLongOption and key == "version":
-        echo "\nversion: ", commit_hash
+        echo "version: ", commit_hash
         versionFound = true
 if not versionFound:
     echo "Usage: $ this_app --version"
