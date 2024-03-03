@@ -1,9 +1,14 @@
 import std/parseopt
+import std/logging
 
 
 ## import file created by `PRE_save_commit_hash.nim -----------------
 include version
-# echo "\ninitial version: ", commit_hash
+
+
+## set up logging -----------------------------------------------------
+var logger = newConsoleLogger()
+logger.log( lvlInfo, "a log message" )
 
 
 ## load args from command line --------------------------------------
@@ -13,6 +18,7 @@ var
 for kind, key, val in opt_parser.getopt():
     assert kind is CmdLineKind and key is string and val is string
     # echo "\nkind: ", kind, "; key: ", key, "; val: ", val
+    logger.log( lvlDebug, "kind: ", kind, "; key: ", key, "; val: ", val )
     if kind == cmdLongOption and key == "version":
         echo "version: ", commit_hash
         versionFound = true
