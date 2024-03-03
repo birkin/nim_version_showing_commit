@@ -7,7 +7,7 @@ include version
 
 
 ## set up logging -----------------------------------------------------
-var logger = newConsoleLogger()
+var logger = newConsoleLogger( levelThreshold=lvlDebug )
 logger.log( lvlInfo, "a log message" )
 
 
