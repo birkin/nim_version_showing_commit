@@ -7,17 +7,14 @@ include version
 
 
 ## load args from command line --------------------------------------
-var opt_parser = parseopt.initOptParser()
-# echo "\nopt_parser: ", opt_parser
-
-var kind = "init"
+var 
+    opt_parser: OptParser = parseopt.initOptParser()
+    versionFound: bool = false  # Flag to indicate whether --version is found
 for kind, key, val in opt_parser.getopt():
-    echo "\nin loop"
-    echo "\nkind: ", kind, "; key: ", key, "; val: ", val
-
-    if key == "version":
+    assert kind is CmdLineKind and key is string and val is string
+    # echo "\nkind: ", kind, "; key: ", key, "; val: ", val
+    if kind == cmdLongOption and key == "version":
         echo "\nversion: ", commit_hash
-    else:
-        echo "\nUsage: $ ./nim_version_showing_commit --version"
-
-echo "\nkind: ", kind
+        versionFound = true
+if not versionFound:
+    echo "Usage: $ this_app --version"
